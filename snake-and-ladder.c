@@ -19,16 +19,14 @@
 
 void printnum_ladder(int num)
 {
-    printf(MAG" %3d "WHT,num);
+    printf(MAG "  %3d  " WHT, num);
 }
 void printnum_snake(int num)
 {
-    if(num == 99 || num == 85 || num == 68 )
-    printf(BRED" %3d "WHT,num);
+    if (num == 99 || num == 85 || num == 68)
+        printf(BRED "  %3d  " WHT, num);
     else
-    printf(RED" %3d "WHT,num);
-    
-    
+        printf(RED "  %3d  " WHT, num);
 }
 
 void display(int arr[][10])
@@ -39,28 +37,32 @@ void display(int arr[][10])
         if(i%2 != 0){
         for (int j = 9; j >= 0; j--)
         {
-              int x = arr[i][j];
-            if( x == 8 || x== 12 || x== 30 || x== 21 ||x==45|| x== 40  || x== 80 || x== 82 || x== 98  || x== 57 || x== 63 || x== 71|| x== 90 || x==41)
-                printnum_ladder(x);
-            else if(x == 99|| x == 83 ||x == 78||x == 62||x == 59||x ==42 ||x == 38||x == 22||x == 19 || x == 2 ||x == 55|| x == 66||x == 76||x == 85 || x== 32|| x==50|| x== 52|| x== 68)
-            printnum_snake(x);
-            else
-            printf(" %3d ",x);
-        }
-        printf("\n\n");
+            for (int j = 9; j >= 0; j--)
+            {
+                int x = arr[i][j];
+                if (x == 8 || x == 12 || x == 30 || x == 21 || x == 45 || x == 40 || x == 80 || x == 82 || x == 98 || x == 57 || x == 63 || x == 71 || x == 90 || x == 41)
+                    printnum_ladder(x);
+                else if (x == 99 || x == 83 || x == 78 || x == 62 || x == 59 || x == 42 || x == 38 || x == 22 || x == 19 || x == 2 || x == 55 || x == 66 || x == 76 || x == 85 || x == 32 || x == 50 || x == 52 || x == 68)
+                    printnum_snake(x);
+                else
+                    printf("  %3d  ", x);
+            }
+            printf("\n\n");
         }
         else{
         for (int j = 0; j<10; j++)
         {
-           int x = arr[i][j];
-            if( x == 8 || x== 12 || x== 30 || x== 21 ||x==45|| x== 40  || x== 80 || x== 82 || x== 98  || x== 57 || x== 63 || x== 71|| x== 90 || x==41)
-                printnum_ladder(x);
-            else if(x == 99|| x == 83 ||x == 78||x == 62||x == 59||x ==42 ||x == 38||x == 22||x == 19 || x == 2 ||x == 55|| x == 66||x == 76||x == 85  || x== 32|| x==50|| x== 52|| x== 68)
-            printnum_snake(x);
-            else
-            printf(" %3d ",x);
-        }
-        printf("\n\n");
+            for (int j = 0; j < 10; j++)
+            {
+                int x = arr[i][j];
+                if (x == 8 || x == 12 || x == 30 || x == 21 || x == 45 || x == 40 || x == 80 || x == 82 || x == 98 || x == 57 || x == 63 || x == 71 || x == 90 || x == 41)
+                    printnum_ladder(x);
+                else if (x == 99 || x == 83 || x == 78 || x == 62 || x == 59 || x == 42 || x == 38 || x == 22 || x == 19 || x == 2 || x == 55 || x == 66 || x == 76 || x == 85 || x == 32 || x == 50 || x == 52 || x == 68)
+                    printnum_snake(x);
+                else
+                    printf("  %3d  ", x);
+            }
+            printf("\n\n");
         }
         
     }
