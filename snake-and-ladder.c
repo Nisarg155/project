@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <conio.h>
+#include<time.h>
+#include<stdlib.h>
+#include<unistd.h>
 // Regular text
 #define RED "\e[0;31m"
 #define GRN "\e[0;32m"
@@ -22,8 +26,12 @@
 #define GRNB "\e[42m"
 
 #define HRED "\e[0;91m"
-int check(int num)
+int check(int num, int d) //? check is the position is of ladder or snake
 {
+    if (num > 100)
+    {
+        return num - d;
+    }
     switch (num)
     {
     case 99:
@@ -52,37 +60,38 @@ int check(int num)
         break;
     default:
         return num;
-        
     }
 }
-void printnum_ladder(int num)
+void printnum_ladder(int num) //? prints the ladde number in mag color
 {
     printf(MAG " %3d " WHT, num);
 }
-void printnum_snake(int num)
+void printnum_snake(int num) //? print the snake number in bold-red if head and red if body
 {
     if (num == 99 || num == 85 || num == 68)
         printf(BRED " %3d " WHT, num);
     else
         printf(HRED " %3d " WHT, num);
 }
-void print_user_n1(int num)
+void print_user_n1(int num) //? prints the baground of user 1 as yellow
 {
     printf(" ");
     printf(YELB "%3d " WHT, num);
 }
-void print_user_n2(int num)
+void print_user_n2(int num) //? prints the baground of user2 as blue
 {
     printf(" ");
     printf(BLUB "%3d " WHT, num);
 }
-void print_user_equal(int num)
+void print_user_equal(int num) //? if the position of users are equal then it prints green
 {
     printf(" ");
     printf(GRNB "%3d " WHT, num);
 }
 void display(int arr[][10], int no1, int no2)
 {
+    sleep(1);
+    system("cls");
     int flag = 1;
     for (int i = 9; i >= 0; i--)
     {
@@ -162,6 +171,39 @@ int main()
     int prev_no_p2 = 1;
     display(arr, prev_no_p1, prev_no_p2);
     printf("\n");
+    int flag = 1, dice_num = 0, combined_num = 0;
+    for (int i = 0; 1; i++)
+    {
+        if (flag) //? player 1 code
+        //! flag 1
+        {
+
+            dice_num = time(NULL) % 6 + 1; // * random number generator
+            prev_no_p1 = check(prev_no_p1 + dice_num, dice_num);
+            display(arr, prev_no_p1, prev_no_p2);
+            flag--;
+        }
+        if (!flag) //? player 2 code
+        //! flag 0
+        {
+
+            dice_num = time(NULL) % 6 + 1; // * random number generator
+            prev_no_p2 = check(prev_no_p2 + dice_num, dice_num);
+            display(arr, prev_no_p1, prev_no_p2);
+            flag++;
+        }
+
+        if (prev_no_p1 == 100)
+        {
+            printf("CONGRATULATIONS!\n\n user 1 wins");
+            break;
+        }
+        if (prev_no_p2 == 100)
+        {
+            printf("CONGRATULATIONS!\n\n user 2 wins");
+            break;
+        }
+    }
 
     return 0;
 }
