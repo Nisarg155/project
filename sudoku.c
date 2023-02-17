@@ -120,7 +120,7 @@ int main()
         }
         
     }
-    position(question,pos);
+    position(answer,pos);
     
     for (int i = 0; i < 9; i++)
     {
