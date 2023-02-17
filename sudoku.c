@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
 #define NORMAL  "\x1b[0m"
 #define RED    "\x1b[31m"
 #define GREEN  "\x1b[32m"
@@ -32,6 +34,31 @@ void answer(int *ar,int *ans) //? converts ar to answer
     }
     
 }
+void position(int (*arr)[9],int (*pos)[18])
+{
+    int k = 0;
+    for (int num = 1; num <10 ; num++)
+    {
+        k=0;
+        for (int row = 0; row < 9; row++)
+        {
+            for (int col = 0; col < 9; col++)
+            {
+                if (num == arr[row][col])
+                {
+                    pos[num-1][k++] = row;
+                    pos[num-1][k++] = col;
+
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}
+void for_loop(int )
 
 
 int main()
@@ -49,8 +76,28 @@ int main()
     printf("\n");
     printf("\n");
 
-    int ans[9][9];
+    int ans[9][9],pos[9][18] = {0};
+     for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 18; j++)
+        {
+            pos[i][j]=-1;
+        }
+        
+    }
     answer(*ar,*ans);
+    position(ans,pos);
+    
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 18; j++)
+        {
+            printf("%d  ",pos[i][j]);
+        }
+        printf("\n");     
+    }
+    
+    
     
    return 0;
 }
