@@ -16,7 +16,37 @@
 #define BMAG "\e[1;35m"
 #define BCYN "\e[1;36m"
 #define BWHT "\e[1;37m"
-
+int check(int num)
+{
+    switch(num){
+        case 99:
+        return 2;
+        break;
+        case 85:
+        return 55;
+        break;
+        case 68:
+        return 32;
+        break;
+        case 80:
+        return 98;
+        break;
+        case 45:
+        return 63;
+        break;
+        case 71:
+        return 90;
+        break;
+        case 8:
+        return 30;
+        break;
+        case 21:
+        return 41;
+        break;
+        default:
+        return num;
+}
+}
 void printnum_ladder(int num)
 {
     printf(MAG " %3d " WHT, num);
