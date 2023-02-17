@@ -33,11 +33,8 @@ int chek(int *answer,int num,int index)
 {
     int row=(index-1)/9;
     int col=index%9;
-    
-    //printf("\n%d\nrow=%d\ncol=%d\nprinting row:\n",*(answer+index),row,col);
     for(int i=0;i<9;i++)
     {
-    //printf("%d ",*(answer+(row*9+i)));
     if(*(answer+(row*9+i))==num)
     return 1;
     }
@@ -45,7 +42,6 @@ int chek(int *answer,int num,int index)
     printf("\nprinting col:\n");
     for(int i=0;i<81;i+=9)
     {
-        //printf("%d ",*(answer+(col+i)));
         if(*(answer+(col+i))==num)
         return 1;
     }
@@ -57,8 +53,6 @@ int chek(int *answer,int num,int index)
     printf("\n%d\n",ibox);
     for(int i=1;i<=21;)
     {
-        //printf("%d ",*(answer+ibox+i));
-        //printf("%d ",*(answer+ibox+i-1));
         if(*(answer+ibox+i-1)==num)
         return 1;
         if(i%3==0)
@@ -108,9 +102,7 @@ int main()
     *(*answer+i)=*(*question+i);
     
     disp(*question,*answer);
-    printf("\n\n");
-    // printf("%d",chek(*answer,7,49));
-    
+    printf("\n\n");    
     int ans[9][9],pos[9][18] = {0};
     for (int i = 0; i < 9; i++)
     {
