@@ -1,5 +1,5 @@
-#include<stdio.h>
-//Regular text
+#include <stdio.h>
+// Regular text
 #define RED "\e[0;31m"
 #define GRN "\e[0;32m"
 #define YEL "\e[0;33m"
@@ -8,7 +8,7 @@
 #define CYN "\e[0;36m"
 #define WHT "\e[0;37m"
 
-//Regular bold text
+// Regular bold text
 #define BRED "\e[1;31m"
 #define BGRN "\e[1;32m"
 #define BYEL "\e[1;33m"
@@ -31,11 +31,10 @@ void printnum_snake(int num)
 
 void display(int arr[][10])
 {
-    for (int i = 9; i>=0; i--)
+    for (int i = 9; i >= 0; i--)
     {
-        
-        if(i%2 != 0){
-        for (int j = 9; j >= 0; j--)
+
+        if (i % 2 != 0)
         {
             for (int j = 9; j >= 0; j--)
             {
@@ -49,10 +48,7 @@ void display(int arr[][10])
             }
             printf("\n\n");
         }
-        printf("\n\n");
-        }
-        else{
-        for (int j = 0; j<10; j++)
+        else
         {
             for (int j = 0; j < 10; j++)
             {
@@ -66,26 +62,18 @@ void display(int arr[][10])
             }
             printf("\n\n");
         }
-        printf("\n\n");
-        }
-        
     }
-    
-    
 }
 
-int main() 
+int main()
 {
-    int arr[10][10],k = 1;
+    int arr[10][10], k = 1;
     for (int i = 0; i < 100; i++)
     {
-        *(*arr + i) = k++; 
+        *(*arr + i) = k++;
     }
     printf("\n\n");
     display(arr);
     printf("\n");
-    
-    
-    
-    return 0;
+return 0;
 }
