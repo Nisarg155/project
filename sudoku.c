@@ -4,6 +4,16 @@
 #define NORMAL  "\x1b[0m"
 #define RED    "\x1b[31m"
 #define GREEN  "\x1b[32m"
+  int question[27][3]= {{0,0,0},{0,0,6},{0,0,3},
+                        {0,0,0},{0,1,0},{4,0,0},
+                        {0,4,0},{8,0,0},{0,7,9},
+                        {8,0,9},{0,7,0},{0,6,0},
+                        {0,6,0},{0,8,0},{0,0,5},
+                        {0,5,7},{0,3,0},{8,0,0},
+                        {2,0,0},{1,0,9},{0,0,0},
+                        {0,0,0},{5,0,3},{0,0,0},
+                        {0,0,0},{0,0,0},{6,0,0}};
+int answer[9][9];
 void disp(int *question,int *answer)
 {
     for(int i=1;i<=81;i++)
@@ -26,7 +36,7 @@ void disp(int *question,int *answer)
         printf("\n");
         
         if(i%27==0 && i!=81)
-        printf(NORMAL"_______\n");
+        printf(NORMAL"_____________________\n");
     }
 }
 int chek(int *answer,int num,int index)
@@ -87,23 +97,13 @@ void position(int (*arr)[9],int (*pos)[18])
 }
 int main()
 {
-    int question[27][3]={{0,0,0},{0,0,6},{0,0,3},
-                         {0,0,0},{0,1,0},{4,0,0},
-                         {0,4,0},{8,0,0},{0,7,9},
-                         {8,0,9},{0,7,0},{0,6,0},
-                         {0,6,0},{0,8,0},{0,0,5},
-                         {0,5,7},{0,3,0},{8,0,0},
-                         {2,0,0},{1,0,9},{0,0,0},
-                         {0,0,0},{5,0,3},{0,0,0},
-                         {0,0,0},{0,0,0},{6,0,0}};
-    
-    int answer[9][9];
+    int pos[9][18] = {0};
     for(int i=0;i<81;i++)
     *(*answer+i)=*(*question+i);
+
     
     disp(*question,*answer);
     printf("\n\n");    
-    int ans[9][9],pos[9][18] = {0};
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j < 18; j++)
@@ -114,7 +114,7 @@ int main()
     }
     position(answer,pos);
     
-    for (int i = 0; i < 9; i++)
+   /* for (int i = 0; i < 9; i++)  //!commented position array
     {
         for (int j = 0; j < 18; j++)
         {
@@ -123,6 +123,6 @@ int main()
         
         printf("\n");
         
-    }
+    }*/
     return 0;
 }
