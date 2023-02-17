@@ -19,14 +19,14 @@
 
 void printnum_ladder(int num)
 {
-    printf(MAG "  %3d  " WHT, num);
+    printf(MAG " %3d " WHT, num);
 }
 void printnum_snake(int num)
 {
     if (num == 99 || num == 85 || num == 68)
-        printf(BRED "  %3d  " WHT, num);
+        printf(BRED " %3d " WHT, num);
     else
-        printf(RED "  %3d  " WHT, num);
+        printf(RED " %3d " WHT, num);
 }
 
 void display(int arr[][10])
@@ -45,9 +45,11 @@ void display(int arr[][10])
                 else if (x == 99 || x == 83 || x == 78 || x == 62 || x == 59 || x == 42 || x == 38 || x == 22 || x == 19 || x == 2 || x == 55 || x == 66 || x == 76 || x == 85 || x == 32 || x == 50 || x == 52 || x == 68)
                     printnum_snake(x);
                 else
-                    printf("  %3d  ", x);
+                    printf(" %3d ", x);
             }
             printf("\n\n");
+        }
+        printf("\n\n");
         }
         else{
         for (int j = 0; j<10; j++)
@@ -60,9 +62,11 @@ void display(int arr[][10])
                 else if (x == 99 || x == 83 || x == 78 || x == 62 || x == 59 || x == 42 || x == 38 || x == 22 || x == 19 || x == 2 || x == 55 || x == 66 || x == 76 || x == 85 || x == 32 || x == 50 || x == 52 || x == 68)
                     printnum_snake(x);
                 else
-                    printf("  %3d  ", x);
+                    printf(" %3d ", x);
             }
             printf("\n\n");
+        }
+        printf("\n\n");
         }
         
     }
